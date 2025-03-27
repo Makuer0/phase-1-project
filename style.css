@@ -161,3 +161,15 @@ color: black;
 
 
 
+#random{
+  font-size: 1em;
+  background-color: rgb(8, 133, 206);
+  color: white;
+  padding: 0.9em 0.7em;
+  border: none;
+  border-radius: 30px;
+}
+
+#random:hover{
+  cursor: pointer;
+}

@@ -2,13 +2,13 @@
 const countryvalue = document.getElementById("values");
 const submition = document.getElementById('submit');
 const nameInput = document.getElementById("countries");
-
+const randomBtn = document.getElementById("random");
 submition.addEventListener("click", ()=>{
-    
+
     const name = nameInput.value.toLowerCase();  
 
-fetch(`https://restcountries.com/v3.1/name/${name}`).then(response =>
-   response.json()
+fetch(`https://restcountries.com/v3.1/name/${name}`)
+.then(response => response.json()
 ).then(data => {
     renderData(data);
 
@@ -65,7 +65,7 @@ if(!data || !Array.isArray(data)||data.length === 0 || !data[0].name){
           </div>
          </div>    
     
-    <button onclick = "fetchCountry()">Random</button>
+    <button onclick = "fetchCountry()" id="random">Random</button>
 
     `
     console.log(data);
@@ -74,7 +74,7 @@ if(!data || !Array.isArray(data)||data.length === 0 || !data[0].name){
     }
 
 
-const toggleSwitch = document.querySelector(".switch input");
+let toggleSwitch = document.querySelector(".switch input");
 
 toggleSwitch.addEventListener("change", function () {
     Appearance(toggleSwitch.checked); 
@@ -88,10 +88,10 @@ function Appearance(isDarkMode) {
     document.querySelector(".container").style.backgroundColor = isDarkMode ? "#505050" : "";
     document.body.style.backgroundColor = isDarkMode ? "	#383838" : "";
     document.body.style.color = isDarkMode ? "white" : "";
-
-    nameInput.style.borderBottom = isDarkMode ? '2px solid 	#383838' : "";
+    nameInput.style.borderBottom = isDarkMode ? '2px solid   	#383838' : "";
     submition.style.backgroundColor = isDarkMode ? "	#383838" : "";
-    submition.style.color = isDarkMode ? "white" : "";
+    document.querySelector("#random").style.backgroundColor = isDarkMode ? "	#383838" : '';
+  
 }
 
 
@@ -107,3 +107,5 @@ function fetchCountry(){
 
 
 }
+
+
