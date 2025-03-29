@@ -19,8 +19,8 @@ let allCountries = [];
 let totalAttempts = 0;  
 let correctAnswers = 0; 
 let timeLeft = 30
-
-
+let totalQuiz = 20
+const totalQuestions = 20
 
 
 
@@ -132,6 +132,7 @@ function Appearance(isDarkMode) {
 }
 
 function startTimer() {
+    totalQuiz = 20;
     timeLeft = 30;
     totalAttempts = 0;
     correctAnswers = 0;
@@ -142,7 +143,7 @@ function startTimer() {
         timeLeft--;
         timerElement.innerHTML = `Time Left: ${timeLeft}s`;
 
-        if (timeLeft <= 0) {
+        if (timeLeft <= 0 || totalQuiz === 0) {
             clearInterval(timer); 
             endQuiz(); 
         }
@@ -157,6 +158,7 @@ function startTimer() {
 document.getElementById("startQuiz").addEventListener("click", startTimer);
 
 function startQuiz() {
+    totalQuiz = 20;
     correctAnswers = 0;
     totalAttempts = 0;
     answer.innerHTML = "";
@@ -168,7 +170,9 @@ function endQuiz() {
     optionsElement.innerHTML = "";
     flagElement.src = ""; 
     answer.style.color = "blue";
-    answer.innerHTML = `⏳ Time's up! You got ${correctAnswers} out of ${totalAttempts} correct.`;
+    let percentage = Math.round((correctAnswers / totalQuestions)*100);
+    answer.innerHTML = `⏳ Time's up! You got ${correctAnswers} out of ${totalQuestions} correct.that is ${percentage}% `;
+    clearInterval(timer);
 }
 
 
@@ -195,6 +199,10 @@ async function getRandomCountry() {
 
 
 async function generateFlagQuiz() {
+    if(totalQuiz === 0){
+        endQuiz();
+    }
+
     try {
         const { country, allCountries } = await getRandomCountry();
 
@@ -216,6 +224,7 @@ async function generateFlagQuiz() {
 }
 
 function generateOptions(allCountries) {
+  
     if (!Array.isArray(allCountries) || allCountries.length === 0) {
         console.error("Invalid country list:", allCountries);
         return;
@@ -241,6 +250,7 @@ function generateOptions(allCountries) {
 
 function checkAnswer(selected) {
     totalAttempts++; 
+   totalQuiz --;
     if (selected === correctAnswer) {
         correctAnswers++;
         answer.style.color = "rgb(13, 185, 50)";
@@ -251,7 +261,7 @@ function checkAnswer(selected) {
     }
  
     
-    if (timeLeft > 0) {
+    if (timeLeft > 0 && totalQuiz !== 0) {
         generateFlagQuiz();
         generateOptions();
     }
