@@ -21,6 +21,23 @@ let correctAnswers = 0;
 let timeLeft = 30
 
 
+
+
+
+
+nameInput.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        submition.click(); 
+    }
+});
+
+
+
+
+
+
+
 submition.addEventListener("click", ()=>{
 
     const name = nameInput.value.toLowerCase();  
