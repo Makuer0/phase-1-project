@@ -16,10 +16,6 @@ body {
 
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   background-color: #f5f4f4;
   width: 80vw; 
   max-width: 600px; 
@@ -29,7 +25,6 @@ body {
   left: 50%;
   bottom: 10%;
   max-height: 90vh;
-  overflow-y: auto;
   overflow: auto;
   transform: translate(-50%, -50%);
   border-radius: 20px;
