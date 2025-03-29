@@ -1,4 +1,4 @@
-* {
+ /* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -232,6 +232,231 @@ background-color: #0056b3;
   }
   .search {
       flex-direction: column; 
+  }
+  .flag-img {
+      width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+      font-size: calc(1.2vw + 1vh);
+  }
+  .container {
+      width: 95%;
+      padding: 1.5em;
+  }
+  .search input {
+      font-size: 1rem;
+  }
+  .flag-img {
+      width: 70%;
+  }
+  button {
+      font-size: 0.9rem;
+      padding: 0.6em;
+  }
+} */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Make Body Flexible & Center Everything */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(8, 133, 206);
+  font-size: calc(1vw + 0.5vh); /* Responsive scaling */
+}
+
+/* Centered Responsive Container */
+.container {
+  background-color: #f5f4f4;
+  width: 80vw;  /* Responsive width */
+  max-width: 600px; /* Prevents excessive stretching */
+  padding: 3em 2.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  box-shadow: 0 1.5em 2em rgba(8, 22, 55, 0.25);
+}
+
+/* Search Bar */
+.search {
+  display: flex;
+  flex-wrap: wrap; /* Ensures proper wrapping on small screens */
+  gap: 1rem;
+  width: 100%;
+}
+
+.search input {
+  flex: 1;
+  font-size: 1.2rem;
+  padding: 0.6em;
+  border: none;
+  border-bottom: 2px solid rgb(8, 133, 206);
+  outline: none;
+  color: rgb(36, 35, 35);
+  border-radius: 30px;
+  min-width: 0;
+}
+
+.search #submit {
+  font-size: 1rem;
+  background-color: rgb(8, 133, 206);
+  color: white;
+  padding: 0.8em 1.2em;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.search #submit:hover {
+  background-color: rgb(6, 100, 160);
+}
+
+/* Responsive Image */
+.flag-img {
+  display: block;
+  width: 50%;
+  max-width: 150px;
+  margin: 2em auto;
+}
+
+/* Values Section */
+#values {
+  margin-top: 1.3em;
+  text-align: center;
+}
+
+/* Toggle Switch */
+.switch {
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  position: relative;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #292929;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Buttons */
+button {
+  font-size: 1rem;
+  padding: 0.8em 1em;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#random {
+  background-color: rgb(8, 133, 206);
+  color: white;
+}
+
+#random:hover {
+  background-color: rgb(6, 100, 160);
+}
+
+#quiz-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#options button {
+  margin: 5px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+}
+
+#options button:hover {
+  background-color: #0056b3;
+}
+
+#answer {
+  color: rgb(60, 95, 6);
+}
+
+#timer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: red;
+}
+
+#startQuiz {
+  background-color: blue;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+  body {
+      font-size: calc(1vw + 0.3vh);
+  }
+  .container {
+      width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+      flex-direction: column; /* Stack elements for better fit */
+      font-size: calc(1vw + 0.5vh);
+  }
+  .container {
+      width: 90%;
+      padding: 2em;
+  }
+  .search {
+      flex-direction: column; /* Stack search bar input & button */
   }
   .flag-img {
       width: 60%;
