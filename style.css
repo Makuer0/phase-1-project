@@ -173,3 +173,40 @@ color: black;
 #random:hover{
   cursor: pointer;
 }
+
+#quiz-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#options button {
+margin: 5px;
+padding: 10px;
+background-color: #007BFF;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+#options button:hover {
+background-color: #0056b3;
+}
+
+#answer{
+  color: rgb(60, 95, 6);
+}
+
+#timer {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+#startQuiz {
+  background-color: blue;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
