@@ -19,7 +19,7 @@ let allCountries = [];
 let totalAttempts = 0;  
 let correctAnswers = 0; 
 let timeLeft = 30
-let timer;
+
 
 submition.addEventListener("click", ()=>{
 
